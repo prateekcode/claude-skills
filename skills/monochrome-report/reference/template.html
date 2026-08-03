@@ -1,0 +1,166 @@
+<title>Report title</title>
+
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink:   #0B0B0B;
+    --ink-2: #4A4A4A;
+    --muted: #8E8E8E;
+    --rule:  #E3E3E3;
+    --track: #F2F2F2;
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans:  ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0C0C0C;
+      --ink:   #F0F0F0;
+      --ink-2: #B0B0B0;
+      --muted: #7A7A7A;
+      --rule:  #2A2A2A;
+      --track: #1C1C1C;
+    }
+  }
+
+  /* Explicit toggle must win over the media query, in both directions. */
+  :root[data-theme="dark"] {
+    --paper: #0C0C0C; --ink: #F0F0F0; --ink-2: #B0B0B0;
+    --muted: #7A7A7A; --rule: #2A2A2A; --track: #1C1C1C;
+  }
+  :root[data-theme="light"] {
+    --paper: #FFFFFF; --ink: #0B0B0B; --ink-2: #4A4A4A;
+    --muted: #8E8E8E; --rule: #E3E3E3; --track: #F2F2F2;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .wrap { max-width: 74ch; margin: 0 auto; }
+
+  h1, h2, h3, .label { font-family: var(--sans); letter-spacing: -0.01em; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 0.5rem; }
+  h2 { font-size: 1.15rem; margin: 3rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  h3 { font-size: 0.95rem; margin: 2rem 0 0.5rem; }
+
+  .kicker, .label, .caption {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .caption { text-transform: none; letter-spacing: 0; font-size: 0.82rem; line-height: 1.5; }
+
+  .lede { font-size: 1.12rem; color: var(--ink); }
+  p { margin: 0 0 1rem; }
+  .note { color: var(--ink-2); font-size: 0.95rem; }
+
+  /* Every figure: mono + tabular. */
+  .num, td.num, .fig { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--rule); }
+  th { font-family: var(--sans); font-size: 0.72rem; text-transform: uppercase;
+       letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
+  td.num, th.num { text-align: right; padding-right: 0; }
+
+  .scroll-x { overflow-x: auto; }
+
+  /* Bar chart — true to scale. Width is the real proportion, never boosted. */
+  .bars { margin: 1.25rem 0; }
+  .bar-row { display: grid; grid-template-columns: 14ch 1fr 8ch; gap: 0.75rem;
+             align-items: center; padding: 0.3rem 0; }
+  .bar-label { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-2); }
+  .bar-track { background: var(--track); height: 14px; position: relative; }
+  .bar-fill  { background: var(--ink); height: 100%; }
+  /* Second series: hatched, not a different hue. Always label it in text too. */
+  .bar-fill.alt {
+    background: var(--track);
+    box-shadow: inset 0 0 0 1px var(--ink);
+    background-image: repeating-linear-gradient(45deg,
+      var(--ink) 0 2px, transparent 2px 5px);
+  }
+  .bar-value { font-family: var(--mono); font-variant-numeric: tabular-nums;
+               font-size: 0.82rem; text-align: right; }
+
+  .legend { display: flex; gap: 1.25rem; font-family: var(--sans);
+            font-size: 0.78rem; color: var(--ink-2); margin: 0.75rem 0 0; }
+  .swatch { display: inline-block; width: 20px; height: 10px; margin-right: 0.4rem;
+            vertical-align: -1px; background: var(--ink); }
+  .swatch.alt { background: var(--track); box-shadow: inset 0 0 0 1px var(--ink);
+                background-image: repeating-linear-gradient(45deg,
+                  var(--ink) 0 2px, transparent 2px 5px); }
+</style>
+
+<div class="wrap">
+
+  <p class="kicker">Section · date</p>
+  <h1>Lead with the verdict, not the method</h1>
+
+  <p class="lede">
+    The first paragraph says what the answer is. One or two sentences, plain language, with the headline
+    figure inline: <span class="num">4.2%</span> — roughly 1 in 24.
+  </p>
+
+  <h2>What we looked at</h2>
+  <p>
+    Define every cohort in words where it first appears. "Users who completed a scan but never opened
+    chat" beats "Cohort B" every time.
+  </p>
+
+  <h3>Conversion by cohort</h3>
+  <div class="bars">
+    <div class="bar-row">
+      <span class="bar-label">Scanned only</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 4.2%"></span></span>
+      <span class="bar-value">4.2%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Scanned + chat</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 31.8%"></span></span>
+      <span class="bar-value">31.8%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Chat only <em>(control)</em></span>
+      <span class="bar-track"><span class="bar-fill alt" style="width: 12.5%"></span></span>
+      <span class="bar-value">12.5%</span>
+    </div>
+  </div>
+  <p class="legend">
+    <span><span class="swatch"></span>Treatment</span>
+    <span><span class="swatch alt"></span>Control</span>
+  </p>
+  <p class="caption">
+    Bars are true to scale against a 100% track. The 4.2% bar is meant to look nearly empty — that is
+    the finding.
+  </p>
+
+  <h2>The numbers</h2>
+  <div class="scroll-x">
+    <table>
+      <thead>
+        <tr><th>Cohort</th><th class="num">Users</th><th class="num">Converted</th><th class="num">Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Scanned only</td><td class="num">12,840</td><td class="num">539</td><td class="num">4.2%</td></tr>
+        <tr><td>Scanned + chat</td><td class="num">3,102</td><td class="num">986</td><td class="num">31.8%</td></tr>
+        <tr><td>Chat only</td><td class="num">1,455</td><td class="num">182</td><td class="num">12.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">
+    Caveat sits next to the number it undermines, not in a footnote: the chat-only group is small enough
+    that a swing of 20 users moves the rate by more than a point.
+  </p>
+
+</div>
