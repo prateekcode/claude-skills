@@ -1,0 +1,13 @@
+{
+  "name": "prateek-skills",
+  "description": "Skills for Claude Code. Includes monochrome-report, a house style for standalone white/black HTML analysis reports.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Prateek Rai",
+    "email": "prateek@aslipundit.com"
+  },
+  "homepage": "https://github.com/prateekcode/claude-skills",
+  "repository": "https://github.com/prateekcode/claude-skills",
+  "license": "MIT",
+  "keywords": ["skills", "reports", "html", "artifacts", "data-visualization"]
+}

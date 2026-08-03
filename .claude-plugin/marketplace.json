@@ -1,0 +1,25 @@
+{
+  "name": "prateekcode",
+  "owner": {
+    "name": "Prateek Rai",
+    "email": "prateek@aslipundit.com"
+  },
+  "metadata": {
+    "description": "Prateek's Claude Code skills.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "prateek-skills",
+      "source": "./",
+      "description": "Skills for Claude Code. Includes monochrome-report, a house style for standalone white/black HTML analysis reports.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Prateek Rai"
+      },
+      "homepage": "https://github.com/prateekcode/claude-skills",
+      "license": "MIT",
+      "keywords": ["skills", "reports", "html", "artifacts"]
+    }
+  ]
+}

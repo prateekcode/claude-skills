@@ -27,20 +27,34 @@ already wired up.
 
 ## Install
 
-**Personal** — available in every project:
+### As a plugin (recommended)
+
+Inside Claude Code:
+
+```
+/plugin marketplace add prateekcode/claude-skills
+/plugin install prateek-skills@prateekcode
+```
+
+You get every skill in this repo, can toggle it on and off with `/plugin`, and pick up new skills
+later with `/plugin marketplace update prateekcode`.
+
+### By hand
+
+If you'd rather just copy the files — personal, available in every project:
 
 ```bash
 git clone https://github.com/prateekcode/claude-skills.git /tmp/claude-skills
 cp -R /tmp/claude-skills/skills/monochrome-report ~/.claude/skills/
 ```
 
-**Per project** — copy into the repo's `.claude/skills/` instead, and commit it so your team gets it:
+Or per project, committed so your team gets it:
 
 ```bash
 cp -R /tmp/claude-skills/skills/monochrome-report /path/to/project/.claude/skills/
 ```
 
-Restart Claude Code afterwards — skills are scanned at session start.
+Either way, restart Claude Code afterwards — skills are scanned at session start.
 
 ## Use
 
