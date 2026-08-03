@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboarding checklist — read-out</title>
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink:   #0B0B0B;
+    --ink-2: #4A4A4A;
+    --muted: #8E8E8E;
+    --rule:  #E3E3E3;
+    --track: #F2F2F2;
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans:  ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0C0C0C; --ink: #F0F0F0; --ink-2: #B0B0B0;
+      --muted: #7A7A7A; --rule: #2A2A2A; --track: #1C1C1C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0C0C0C; --ink: #F0F0F0; --ink-2: #B0B0B0;
+    --muted: #7A7A7A; --rule: #2A2A2A; --track: #1C1C1C;
+  }
+  :root[data-theme="light"] {
+    --paper: #FFFFFF; --ink: #0B0B0B; --ink-2: #4A4A4A;
+    --muted: #8E8E8E; --rule: #E3E3E3; --track: #F2F2F2;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--serif); font-size: 17px; line-height: 1.62;
+    margin: 0; padding: 3.5rem 1.5rem 5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 74ch; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: var(--sans); letter-spacing: -0.015em; }
+  h1 { font-size: 1.95rem; line-height: 1.18; margin: 0 0 0.6rem; }
+  h2 { font-size: 1.1rem; margin: 2.6rem 0 0.7rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+  h3 { font-size: 0.92rem; margin: 1.8rem 0 0.6rem; }
+
+  .kicker {
+    font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 0.5rem;
+  }
+  .lede { font-size: 1.13rem; margin: 0 0 1.1rem; }
+  p { margin: 0 0 1rem; }
+  .caption { font-family: var(--sans); font-size: 0.8rem; line-height: 1.5; color: var(--muted); margin-top: 0.6rem; }
+  .note { color: var(--ink-2); font-size: 0.95rem; }
+
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.8rem 0 0; }
+  th, td { text-align: left; padding: 0.5rem 0.8rem 0.5rem 0; border-bottom: 1px solid var(--rule); }
+  th { font-family: var(--sans); font-size: 0.68rem; text-transform: uppercase;
+       letter-spacing: 0.09em; color: var(--muted); font-weight: 500; }
+  td { font-family: var(--sans); font-size: 0.88rem; }
+  td.num, th.num { text-align: right; padding-right: 0; font-family: var(--mono);
+                   font-variant-numeric: tabular-nums; }
+  th.num { font-family: var(--sans); }
+  .scroll-x { overflow-x: auto; }
+
+  .bars { margin: 1.1rem 0 0; }
+  .bar-row { display: grid; grid-template-columns: 17ch 1fr 7ch; gap: 0.8rem;
+             align-items: center; padding: 0.32rem 0; }
+  .bar-label { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-2); }
+  .bar-track { display: block; background: var(--track); height: 15px; }
+  .bar-fill { display: block; background: var(--ink); height: 100%; }
+  .bar-fill.alt {
+    background: var(--track);
+    box-shadow: inset 0 0 0 1px var(--ink);
+    background-image: repeating-linear-gradient(45deg, var(--ink) 0 2px, transparent 2px 5px);
+  }
+  .bar-value { font-family: var(--mono); font-variant-numeric: tabular-nums;
+               font-size: 0.82rem; text-align: right; }
+  .legend { display: flex; gap: 1.3rem; font-family: var(--sans);
+            font-size: 0.76rem; color: var(--ink-2); margin: 0.85rem 0 0; }
+  .swatch { display: inline-block; width: 22px; height: 10px; margin-right: 0.45rem;
+            vertical-align: 0px; background: var(--ink); }
+  .swatch.alt { background: var(--track); box-shadow: inset 0 0 0 1px var(--ink);
+                background-image: repeating-linear-gradient(45deg, var(--ink) 0 2px, transparent 2px 5px); }
+
+  .sample-banner {
+    font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted);
+    border: 1px solid var(--rule); padding: 0.5rem 0.75rem; margin: 0 0 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="sample-banner">Sample document — invented data, for demonstrating the report style</p>
+
+  <p class="kicker">Activation · Q2</p>
+  <h1>The checklist works, but almost nobody finishes it</h1>
+
+  <p class="lede">
+    People who complete the onboarding checklist convert at <span class="num">31.8%</span> against
+    <span class="num">12.5%</span> for those who never open it — but only <span class="num">4.2%</span>
+    finish it, roughly 1 in 24. The lever is real and it is barely being pulled.
+  </p>
+
+  <p class="note">
+    Everything below covers the <span class="num">17,397</span> accounts created between April and June
+    that reached the dashboard at least once. Accounts that bounced before first render are excluded.
+  </p>
+
+  <h2>Where people stop</h2>
+  <p>
+    Each step is drawn against the full cohort, so the bars shrink as people drop out. The gap between
+    step two and step three is where the funnel actually breaks.
+  </p>
+
+  <div class="bars">
+    <div class="bar-row">
+      <span class="bar-label">Opened checklist</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 48.1%"></span></span>
+      <span class="bar-value">48.1%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Connected a source</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 22.6%"></span></span>
+      <span class="bar-value">22.6%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Invited a teammate</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 6.9%"></span></span>
+      <span class="bar-value">6.9%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Finished all four</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 4.2%"></span></span>
+      <span class="bar-value">4.2%</span>
+    </div>
+  </div>
+  <p class="caption">
+    Bars are true to scale against the whole cohort. The last bar is meant to look nearly empty — that
+    is the finding, not a rendering problem.
+  </p>
+
+  <h2>Does finishing actually cause the conversion?</h2>
+  <p>
+    Partly. A holdout that never saw the checklist converts at <span class="num">12.5%</span>, so the
+    finishers' <span class="num">31.8%</span> is not all selection effect — but finishers were already
+    the more committed accounts. Treat the honest lift as the middle of that range, not the full
+    <span class="num">19.3</span>-point gap.
+  </p>
+
+  <div class="bars">
+    <div class="bar-row">
+      <span class="bar-label">Finished checklist</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 31.8%"></span></span>
+      <span class="bar-value">31.8%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Opened, didn't finish</span>
+      <span class="bar-track"><span class="bar-fill" style="width: 18.4%"></span></span>
+      <span class="bar-value">18.4%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Never saw it <em>(holdout)</em></span>
+      <span class="bar-track"><span class="bar-fill alt" style="width: 12.5%"></span></span>
+      <span class="bar-value">12.5%</span>
+    </div>
+  </div>
+  <p class="legend">
+    <span><span class="swatch"></span>Saw the checklist</span>
+    <span><span class="swatch alt"></span>Holdout — never shown it</span>
+  </p>
+  <p class="caption">
+    The holdout is hatched rather than coloured, and labelled in words. No hue carries meaning anywhere
+    in this document, so it survives greyscale printing and colour-blind readers unchanged.
+  </p>
+
+  <h2>The numbers</h2>
+  <div class="scroll-x">
+    <table>
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th class="num">Accounts</th>
+          <th class="num">Converted</th>
+          <th class="num">Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Finished checklist</td><td class="num">731</td><td class="num">232</td><td class="num">31.8%</td></tr>
+        <tr><td>Opened, didn't finish</td><td class="num">7,636</td><td class="num">1,405</td><td class="num">18.4%</td></tr>
+        <tr><td>Never opened it</td><td class="num">7,575</td><td class="num">1,033</td><td class="num">13.6%</td></tr>
+        <tr><td>Holdout</td><td class="num">1,455</td><td class="num">182</td><td class="num">12.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">
+    The caveat sits next to the number it undermines rather than in a footnote: the holdout is small
+    enough that <span class="num">20</span> accounts moving either way shifts its rate by more than a
+    point, so treat it as a rough floor.
+  </p>
+
+  <h2>What to do</h2>
+  <p>
+    Step three — inviting a teammate — costs more than two thirds of everyone still standing at step
+    two. It is also the only step that requires knowing someone else's email address on the spot. Make
+    it skippable and re-offer it a week later, then re-run this read-out against the same cohort
+    definition.
+  </p>
+
+</div>
+</body>
+</html>

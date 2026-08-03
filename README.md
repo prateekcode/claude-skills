@@ -10,6 +10,18 @@ Skills for [Claude Code](https://claude.com/claude-code).
 
 ### monochrome-report
 
+<p align="center">
+  <img src="docs/img/report-light.png" alt="A monochrome report in light theme: black serif prose on white, a true-to-scale bar chart where the smallest bar is a stub, and a table of figures set in mono." width="49%">
+  <img src="docs/img/report-dark.png" alt="The same report in dark theme: white text on near-black, identical layout, bars inverted to white fill on a dark track." width="49%">
+</p>
+
+<p align="center"><em>The same report, light and dark. Sample data — see
+<a href="examples/example-report.html">examples/example-report.html</a>, which opens directly in a browser.</em></p>
+
+Note what's happening in the chart: the "finished all four" bar at <code>4.2%</code> is drawn as a stub,
+because that's what 4.2% of the width is. Nothing is rescaled to make it look presentable. And the
+holdout series is distinguished by **hatching plus a written label**, never by colour.
+
 A house style for analysis documents. Reports come out as a single self-contained HTML file — no
 markdown, no terminal dump — with:
 
@@ -23,7 +35,7 @@ markdown, no terminal dump — with:
 - Prose that leads with the verdict, defines every cohort in words, and says what a number *means*.
 
 `skills/monochrome-report/reference/template.html` is a working skeleton with all of the above
-already wired up.
+already wired up, and `examples/example-report.html` is the finished document pictured above.
 
 ## Install
 

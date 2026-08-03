@@ -81,8 +81,9 @@
   .bar-row { display: grid; grid-template-columns: 14ch 1fr 8ch; gap: 0.75rem;
              align-items: center; padding: 0.3rem 0; }
   .bar-label { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-2); }
-  .bar-track { background: var(--track); height: 14px; position: relative; }
-  .bar-fill  { background: var(--ink); height: 100%; }
+  .bar-track { display: block; background: var(--track); height: 14px; }
+  /* display:block matters — as a plain inline span the fill's width is ignored. */
+  .bar-fill  { display: block; background: var(--ink); height: 100%; }
   /* Second series: hatched, not a different hue. Always label it in text too. */
   .bar-fill.alt {
     background: var(--track);
